@@ -13,6 +13,7 @@ AI systems to production: inference optimization, GPU kernel and quantization wo
 ## Tools
 
 - [blackwell-doctor](https://github.com/jahnclawdmonet/blackwell-doctor): a zero-dependency probe that reports your NVIDIA Blackwell (sm_120 / sm_121) GPU, serving stack, and a stable matrix key for the exact cell you are running. Run it with `uvx blackwell-doctor`.
+- [blackwell-serving-matrix](https://github.com/jahnclawdmonet/blackwell-serving-matrix): measured serving results on RTX PRO 6000 Blackwell (which model/runtime/quantization/backend cells start, OOM, and how fast), one JSON line per cell.
 
 ## Services
 
