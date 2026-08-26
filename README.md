@@ -10,6 +10,10 @@ AI systems to production: inference optimization, GPU kernel and quantization wo
 - vLLM [#53775](https://github.com/vllm-project/vllm/issues/53775) / [#53777](https://github.com/vllm-project/vllm/issues/53777): sm_120 shared-memory measurements and commit-graph verification of a reporter's build state.
 - Writing: [dev.to/conatusai](https://dev.to/conatusai) and [conatusai.hashnode.dev](https://conatusai.hashnode.dev)
 
+## Tools
+
+- [blackwell-doctor](https://github.com/jahnclawdmonet/blackwell-doctor): a zero-dependency probe that reports your NVIDIA Blackwell (sm_120 / sm_121) GPU, serving stack, and a stable matrix key for the exact cell you are running. Run it with `uvx blackwell-doctor`.
+
 ## Services
 
 - Single-cell serving verification, 59 USD: one public model, one runtime, one quantization and one topology measured on Blackwell, handed back with the exact command and raw logs. [conatus.jahn.ai/ai-engineering#sku-e](https://conatus.jahn.ai/ai-engineering/#sku-e)
