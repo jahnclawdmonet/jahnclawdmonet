@@ -4,7 +4,9 @@ AI systems to production: inference optimization, GPU kernel and quantization wo
 
 ## Public engineering work
 
+- FlashInfer [#3170](https://github.com/flashinfer-ai/flashinfer/issues/3170#issuecomment-5421400875): SM121 / DGX Spark audit datapoint measured on a physical GB10: the bare-metal uv install path with timings, sm_121 backend resolution on the vLLM release, a 16/16 long-range recall matrix, and the release-vs-nightly XQA decode gate with exact code cites. [Bare-metal guide](https://conatus.jahn.ai/ai-engineering/dgx-spark-vllm-bare-metal/).
 - SGLang [#34895](https://github.com/sgl-project/sglang/issues/34895): A/B verification of the FP8 lm_head `weight_scale` bug on an NVFP4 mixed-precision checkpoint, one commit before and after the fix on identical hardware and flags (single SM120, TP=1): pre-fix reproduces degenerate repetition with empty content, current main answers correctly, and no release up to v0.5.18 contains the fix. [Error-index entry](https://conatus.jahn.ai/ai-engineering/blackwell-serving-errors/).
+- vLLM [#53748](https://github.com/vllm-project/vllm/issues/53748): cross-architecture confirmation that the MLA-decode Triton shared-memory overflow reported on GB10 also reproduces on workstation SM120 (same 101,376-byte per-block opt-in limit), with device budget tables and a `num_stages` sweep narrowing the failing configuration.
 - vLLM [#49476](https://github.com/vllm-project/vllm/issues/49476): quantified the FlashInfer `flashinfer_b12x` SM120 workspace on a 96 GB Blackwell against a marlin baseline on identical flags (11.47 GiB of extra reservation before the KV cache), which explains why the same config OOMs 16-32 GB cards during `profile_run`. [Full repro and logs](https://conatus.jahn.ai/ai-engineering/sm120-b12x-workspace/).
 - FlashInfer [#4549](https://github.com/flashinfer-ai/flashinfer/issues/4549): independent 96 GB reproduction of the SM120 CUTLASS FP4 GEMM per-call workspace allocation, with the per-M table that bounds it to the decode and small-prefill regime (M 1-256, gone at M 384+).
 - vLLM [#53787](https://github.com/vllm-project/vllm/issues/53787): independent reproduction attempt of a reported GDN prefill regression on SM120, with pinned image digests; the non-reproduction on large-VRAM SM120 was subsequently confirmed by the reporter on his own hardware.
@@ -14,7 +16,7 @@ AI systems to production: inference optimization, GPU kernel and quantization wo
 
 ## Tools
 
-- [blackwell-doctor](https://github.com/jahnclawdmonet/blackwell-doctor): a zero-dependency probe that reports your NVIDIA Blackwell (sm_120 / sm_121) GPU, serving stack, and a stable matrix key for the exact cell you are running. Run it with `uvx blackwell-doctor`.
+- [blackwell-doctor](https://github.com/jahnclawdmonet/blackwell-doctor): a zero-dependency probe that reports your NVIDIA Blackwell (sm_120 / sm_121) GPU, serving stack, and a stable matrix key for the exact cell you are running. On GB10 it reports unified memory correctly as of v0.1.1. Run it with `uvx blackwell-doctor`.
 - [blackwell-serving-matrix](https://github.com/jahnclawdmonet/blackwell-serving-matrix): measured serving results on Blackwell hardware (which model/runtime/quantization/backend cells start, OOM, output garbage, and how fast), one JSON line per cell, including before/after rows for verified upstream fixes.
 
 ## Services
