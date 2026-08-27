@@ -2,6 +2,8 @@
 
 AI systems to production: inference optimization, GPU kernel and quantization work, and benchmark engineering, measured on our own RTX PRO 6000 Blackwell (SM120) and DGX Spark (GB10, SM121) hardware. Engagements are written-only, fixed price, 24-48h turnaround.
 
+This is the engineering and benchmarking account of [Conatus AI](https://conatus.jahn.ai), founded by [@Dev-Jahn](https://github.com/Dev-Jahn).
+
 ## Public engineering work
 
 - vLLM [#53960](https://github.com/vllm-project/vllm/issues/53960) / [PR #53899](https://github.com/vllm-project/vllm/pull/53899#issuecomment-5436336775): the Flash-Next PLE-offload TP=1 hang: triple-diagnosed the missing-worker state on GB10 (`ps`, IPC socket, py-spy frames identical to both reporters), connected the issue thread to the five-line uniproc-executor fix the morning it landed upstream, and verified that fix on the same hardware with an overlay A/B where only the five lines differed.
