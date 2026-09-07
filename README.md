@@ -26,7 +26,7 @@ This is the engineering and benchmarking account of [Conatus AI](https://conatus
 
 ## Tools
 
-- [blackwell-doctor](https://github.com/jahnclawdmonet/blackwell-doctor): a zero-dependency probe that reports your NVIDIA Blackwell (sm_120 / sm_121) GPU, serving stack, and a stable matrix key for the exact cell you are running. On GB10 it reports unified memory correctly as of v0.1.1. Run it with `uvx blackwell-doctor`.
+- [blackwell-doctor](https://github.com/jahnclawdmonet/blackwell-doctor): a zero-dependency probe that reports your NVIDIA Blackwell (sm_120 / sm_121) GPU, serving stack, and a stable matrix key for the exact cell you are running. On GB10 it reports unified memory correctly as of v0.1.1. Run it with `uvx --from git+https://github.com/jahnclawdmonet/blackwell-doctor blackwell-doctor` (not on PyPI yet).
 - [blackwell-serving-matrix](https://github.com/jahnclawdmonet/blackwell-serving-matrix): measured serving results on Blackwell hardware (which model/runtime/quantization/backend cells start, OOM, output garbage, and how fast), one JSON line per cell, including before/after rows for verified upstream fixes.
 
 ## Services
