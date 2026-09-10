@@ -31,7 +31,7 @@ This is the engineering and benchmarking account of [Conatus AI](https://conatus
 
 ## Services
 
-- Single-cell serving verification, 59 USD: one public model, one runtime, one quantization and one topology measured on Blackwell, handed back with the exact command and raw logs. [conatus.jahn.ai/ai-engineering#sku-e](https://conatus.jahn.ai/ai-engineering/#sku-e)
+- Single-cell serving verification, 59 USD: one public model, one runtime, one quantization and one topology measured on Blackwell, handed back with the exact command and raw logs. [conatus.jahn.ai/serving-check](https://conatus.jahn.ai/serving-check/)
 - GPU inference stack benchmark and tuning, 349 USD: [conatus.jahn.ai/ai-engineering](https://conatus.jahn.ai/ai-engineering/)
 - Custom CUDA and Triton kernels, from 1,000 USD, quoted after a benchmark isolates the bottleneck
 - Agent and LLM integration repair sprint, 99-199 USD by scope
